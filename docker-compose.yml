@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: fns_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: locadora
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+
