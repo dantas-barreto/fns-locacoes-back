@@ -1,4 +1,4 @@
-package com.fns.fns_locacoes.model.repository;
+package com.fns.fns_locacoes.repository;
 
 import com.fns.fns_locacoes.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;

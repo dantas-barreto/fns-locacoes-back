@@ -1,7 +1,7 @@
 package com.fns.fns_locacoes.service;
 
 import com.fns.fns_locacoes.model.Cliente;
-import com.fns.fns_locacoes.model.repository.ClienteRepository;
+import com.fns.fns_locacoes.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
