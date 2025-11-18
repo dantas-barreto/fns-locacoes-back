@@ -11,14 +11,14 @@ import java.util.List;
 public class ClienteService {
 
     @Autowired
-    private ClienteRepository repository;
+    private ClienteRepository clienteRepository;
 
     public Cliente salvar(Cliente cliente) {
-        return repository.save(cliente);
+        return clienteRepository.save(cliente);
     }
 
     public Cliente atualizar(Long id, Cliente clienteAtualizado) {
-        Cliente existente = repository.findById(id)
+        Cliente existente = clienteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
 
         existente.setNome(clienteAtualizado.getNome());
@@ -26,19 +26,19 @@ public class ClienteService {
         existente.setTelefone(clienteAtualizado.getTelefone());
         existente.setEndereco(clienteAtualizado.getEndereco());
 
-        return repository.save(existente);
+        return clienteRepository.save(existente);
     }
 
     public Cliente buscarPorId(Long id) {
-        return repository.findById(id)
+        return clienteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
     }
 
     public List<Cliente> listar() {
-        return repository.findAll();
+        return clienteRepository.findAll();
     }
 
     public void remover(Long id) {
-        repository.deleteById(id);
+        clienteRepository.deleteById(id);
     }
 }

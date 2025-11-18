@@ -12,30 +12,30 @@ import java.util.List;
 public class ClienteController {
 
     @Autowired
-    private ClienteService service;
+    private ClienteService clienteService;
 
     @PostMapping
     public Cliente criar(@RequestBody Cliente cliente) {
-        return service.salvar(cliente);
+        return clienteService.salvar(cliente);
     }
 
     @GetMapping("/{id}")
     public Cliente buscar(@PathVariable Long id) {
-        return service.buscarPorId(id);
+        return clienteService.buscarPorId(id);
     }
 
     @GetMapping
     public List<Cliente> listar() {
-        return service.listar();
+        return clienteService.listar();
     }
 
     @PutMapping("/{id}")
     public Cliente atualizar(@PathVariable Long id, @RequestBody Cliente cliente) {
-        return service.atualizar(id, cliente);
+        return clienteService.atualizar(id, cliente);
     }
 
     @DeleteMapping("/{id}")
     public void remover(@PathVariable Long id) {
-        service.remover(id);
+        clienteService.remover(id);
     }
 }
