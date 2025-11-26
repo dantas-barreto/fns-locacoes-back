@@ -23,8 +23,8 @@ public class UsuarioService {
                 .orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
 
         existente.setNome(usuarioAtualizado.getnome());
-        existente.setEmail(usuarioAtualizado.getEmail());
-        existente.setSenha(usuarioAtualizado.getSenha());
+        existente.setLogin(usuarioAtualizado.getLogin());
+        existente.setSenhaHash(usuarioAtualizado.getSenhaHash());
         existente.setPerfilUsuario(usuarioAtualizado.getPerfilUsuario());
 
         return usuarioRepository.save(existente);

@@ -1,14 +1,17 @@
 package com.fns.fns_locacoes.model;
 
-import com.fns.fns_locacoes.model.enums.StatusVeiculo;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Veiculo {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String modelo;
@@ -17,7 +20,9 @@ public class Veiculo {
     private String placa;
     private String renavam;
 
-    private StatusVeiculo statusVeiculo;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "mensagem_id")
+    private Mensagem mensagem;
 
     public Long getId() {
         return id;
@@ -63,11 +68,11 @@ public class Veiculo {
         this.renavam = renavam;
     }
 
-    public StatusVeiculo getStatusVeiculo() {
-        return statusVeiculo;
+    public Mensagem getMensagem() {
+        return mensagem;
     }
 
-    public void setStatusVeiculo(StatusVeiculo statusVeiculo) {
-        this.statusVeiculo = statusVeiculo;
+    public void setMensagem(Mensagem mensagem) {
+        this.mensagem = mensagem;
     }
 }

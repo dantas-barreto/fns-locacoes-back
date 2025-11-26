@@ -27,7 +27,6 @@ public class VeiculoService {
         existente.setPlaca(veiculoAtualizado.getPlaca());
         existente.setAno(veiculoAtualizado.getAno());
         existente.setRenavam(veiculoAtualizado.getRenavam());
-        existente.setStatusVeiculo(veiculoAtualizado.getStatusVeiculo());
 
         return veiculoRepository.save(existente);
     }
