@@ -2,20 +2,31 @@ package com.fns.fns_locacoes.model;
 
 import com.fns.fns_locacoes.model.enums.MetodoPagamento;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 import java.util.Date;
 
 @Entity
 public class Pagamento {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Date data;
     private double valor;
+
+    @Enumerated(EnumType.STRING)
     private MetodoPagamento metodoPagamento;
+
+    @ManyToOne
+    @JoinColumn(name = "locacao_id")
+    private Locacao locacao;
 
     public Long getId() {
         return id;
@@ -43,5 +54,9 @@ public class Pagamento {
 
     public void setMetodoPagamento(MetodoPagamento metodoPagamento) {
         this.metodoPagamento = metodoPagamento;
+    }
+
+    public Locacao getLocacao() {
+        return locacao;
     }
 }
