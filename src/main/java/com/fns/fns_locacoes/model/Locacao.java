@@ -41,9 +41,6 @@ public class Locacao {
     @OneToMany(mappedBy = "locacao", cascade = CascadeType.ALL)
     private List<Pagamento> pagamentos;
 
-    @OneToOne(mappedBy = "locacao", cascade = CascadeType.ALL)
-    private Recibo recibo;
-
     public Long getId() {
         return id;
     }
@@ -126,13 +123,5 @@ public class Locacao {
 
     public void setPagamentos(List<Pagamento> pagamentos) {
         this.pagamentos = pagamentos;
-    }
-
-    public Recibo getRecibo() {
-        return recibo;
-    }
-
-    public void setRecibo(Recibo recibo) {
-        this.recibo = recibo;
     }
 }

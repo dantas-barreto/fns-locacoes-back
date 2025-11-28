@@ -1,12 +1,11 @@
 package com.fns.fns_locacoes.model;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Veiculo {
@@ -20,9 +19,9 @@ public class Veiculo {
     private String placa;
     private String renavam;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "mensagem_id")
-    private Mensagem mensagem;
+    @ManyToOne
+    @JoinColumn(name = "historicoEventos_id")
+    private HistoricoEventos historicoEventos;
 
     public Long getId() {
         return id;
@@ -68,11 +67,11 @@ public class Veiculo {
         this.renavam = renavam;
     }
 
-    public Mensagem getMensagem() {
-        return mensagem;
+    public HistoricoEventos getHistoricoEventos() {
+        return historicoEventos;
     }
 
-    public void setMensagem(Mensagem mensagem) {
-        this.mensagem = mensagem;
+    public void setHistoricoEventos(HistoricoEventos historicoEventos) {
+        this.historicoEventos = historicoEventos;
     }
 }

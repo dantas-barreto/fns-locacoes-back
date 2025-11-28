@@ -12,7 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Mensagem {
+public class HistoricoEventos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
