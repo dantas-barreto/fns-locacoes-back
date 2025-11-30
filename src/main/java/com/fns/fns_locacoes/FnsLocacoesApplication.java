@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class FnsLocacoesApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(FnsLocacoesApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(FnsLocacoesApplication.class, args);
+    }
 
 }
