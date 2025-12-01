@@ -57,7 +57,6 @@ public class LocacaoService {
         existente.setDataDevolucao(locacaoAtualizada.getDataDevolucao());
         existente.setValorDiaria(locacaoAtualizada.getValorDiaria());
         existente.setValorFinal(locacaoAtualizada.getValorFinal());
-        existente.setUsuarioResposavelId(locacaoAtualizada.getUsuarioResposavelId());
 
         Cliente cliente = clienteRepository.findById(locacaoAtualizada.getCliente().getId())
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));

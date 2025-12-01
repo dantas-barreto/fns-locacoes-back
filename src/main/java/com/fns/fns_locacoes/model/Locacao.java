@@ -24,8 +24,6 @@ public class Locacao {
     private Double valorDiaria;
     private Double valorFinal;
 
-    private Long usuarioResposavelId;
-
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
@@ -83,14 +81,6 @@ public class Locacao {
 
     public void setValorFinal(Double valorFinal) {
         this.valorFinal = valorFinal;
-    }
-
-    public Long getUsuarioResposavelId() {
-        return usuarioResposavelId;
-    }
-
-    public void setUsuarioResposavelId(Long usuarioResposavelId) {
-        this.usuarioResposavelId = usuarioResposavelId;
     }
 
     public Cliente getCliente() {
