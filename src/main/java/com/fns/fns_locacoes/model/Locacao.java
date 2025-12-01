@@ -32,7 +32,7 @@ public class Locacao {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "veiculo_id", unique = true)
     private Veiculo veiculo;
 
