@@ -23,7 +23,7 @@ public class VeiculoService {
                 .orElseThrow(() -> new RuntimeException("Veículo não encontrado"));
 
         existente.setModelo(veiculoAtualizado.getModelo());
-        existente.setMarca(veiculoAtualizado.getModelo());
+        existente.setMarca(veiculoAtualizado.getMarca());
         existente.setPlaca(veiculoAtualizado.getPlaca());
         existente.setAno(veiculoAtualizado.getAno());
         existente.setRenavam(veiculoAtualizado.getRenavam());

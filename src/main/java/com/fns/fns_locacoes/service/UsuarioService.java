@@ -22,7 +22,7 @@ public class UsuarioService {
         Usuario existente = usuarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
 
-        existente.setNome(usuarioAtualizado.getnome());
+        existente.setNome(usuarioAtualizado.getNome());
         existente.setLogin(usuarioAtualizado.getLogin());
         existente.setSenhaHash(usuarioAtualizado.getSenhaHash());
         existente.setPerfilUsuario(usuarioAtualizado.getPerfilUsuario());
