@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Veículos - FNS Locações</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+  <header><h1>Veículos</h1></header>
+
+  <main>
+    <div class="toolbar">
+      <a href="index.html">Voltar</a>
+      <button class="btn-primary" onclick="novoVeiculo()">Novo Veículo</button>
+    </div>
+
+    <table id="tabela-veiculos">
+      <thead>
+        <tr><th>ID</th><th>Marca</th><th>Modelo</th><th>Ano</th><th>Placa</th><th>Renavam</th><th>Status</th><th>Ações</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div id="modal-veiculo" class="modal hidden">
+      <div class="modal-content">
+        <h2 id="titulo-veiculo">Novo Veículo</h2>
+        <input type="hidden" id="veiculo-id">
+
+        <label>Marca</label><input id="veiculo-marca">
+        <label>Modelo</label><input id="veiculo-modelo">
+        <label>Ano</label><input id="veiculo-ano" type="number">
+        <label>Placa</label><input id="veiculo-placa">
+        <label>Renavam</label><input id="veiculo-renavam">
+
+        <label>Status atual</label>
+        <select id="veiculo-status">
+          <option value="DISPONIVEL">DISPONIVEL</option>
+          <option value="LOCADO">LOCADO</option>
+          <option value="SINISTRO">SINISTRO</option>
+          <option value="MANUTENCAO">MANUTENCAO</option>
+        </select>
+
+        <button class="btn-primary" onclick="salvarVeiculo()">Salvar</button>
+        <button onclick="fecharModalVeiculo()">Cancelar</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/veiculos.js"></script>
+</body>
+</html>

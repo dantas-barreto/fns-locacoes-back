@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Usuários - FNS Locações</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+  <header>
+    <h1>Usuários</h1>
+  </header>
+
+  <main>
+    <div class="toolbar">
+      <a href="index.html">Voltar</a>
+      <button class="btn-primary" onclick="novoUsuario()">Novo Usuário</button>
+    </div>
+
+    <table id="tabela-usuarios">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Login</th>
+          <th>Perfil</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <!-- Modal -->
+    <div id="modal-usuario" class="modal hidden">
+      <div class="modal-content">
+        <h2 id="titulo-usuario">Novo Usuário</h2>
+
+        <input type="hidden" id="usuario-id">
+
+        <label>Nome</label>
+        <input id="usuario-nome" type="text">
+
+        <label>Login</label>
+        <input id="usuario-login" type="text">
+
+        <label>Senha</label>
+        <input id="usuario-senha" type="password">
+
+        <label>Perfil</label>
+        <select id="usuario-perfil">
+          <option value="ATENDENTE">ATENDENTE</option>
+          <option value="FINANCEIRO">FINANCEIRO</option>
+          <option value="GESTOR">GESTOR</option>
+        </select>
+
+        <button onclick="salvarUsuario()" class="btn-primary">Salvar</button>
+        <button onclick="fecharModalUsuario()">Cancelar</button>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/usuarios.js"></script>
+</body>
+</html>

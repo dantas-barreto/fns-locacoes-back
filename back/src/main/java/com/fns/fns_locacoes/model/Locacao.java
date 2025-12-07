@@ -1,6 +1,9 @@
 package com.fns.fns_locacoes.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.FutureOrPresent;
 
 import java.util.Date;
 import java.util.List;
@@ -12,28 +15,37 @@ public class Locacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "Data de início é obrigatória")
     @Temporal(TemporalType.DATE)
     private Date dataInicio;
 
+    @NotNull(message = "Data fim prevista é obrigatória")
     @Temporal(TemporalType.DATE)
     private Date dataFimPrevista;
 
     @Temporal(TemporalType.DATE)
     private Date dataDevolucao;
 
+    @NotNull(message = "Valor diária é obrigatório")
+    @Positive(message = "Valor diária deve ser positivo")
     private Double valorDiaria;
+
+    @Positive(message = "Valor final deve ser positivo")
     private Double valorFinal;
 
+    @NotNull(message = "Cliente é obrigatório")
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
+    @NotNull(message = "Usuário é obrigatório")
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
+    @NotNull(message = "Veículo é obrigatório")
     @ManyToOne
-    @JoinColumn(name = "veiculo_id", unique = true)
+    @JoinColumn(name = "veiculo_id")
     private Veiculo veiculo;
 
     @OneToMany(mappedBy = "locacao", cascade = CascadeType.ALL)

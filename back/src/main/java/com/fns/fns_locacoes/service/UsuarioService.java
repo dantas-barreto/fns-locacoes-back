@@ -15,10 +15,13 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     public Usuario salvar(Usuario usuario) {
+        validarUsuario(usuario);
         return usuarioRepository.save(usuario);
     }
 
     public Usuario atualizar(Long id, Usuario usuarioAtualizado) {
+        validarUsuario(usuarioAtualizado);
+        
         Usuario existente = usuarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
 
@@ -41,5 +44,21 @@ public class UsuarioService {
 
     public void remover(Long id) {
         usuarioRepository.deleteById(id);
+    }
+
+    // Método de validação
+    private void validarUsuario(Usuario usuario) {
+        if (usuario.getNome() == null || usuario.getNome().trim().isEmpty()) {
+            throw new RuntimeException("Nome do usuário é obrigatório");
+        }
+        if (usuario.getLogin() == null || usuario.getLogin().trim().isEmpty()) {
+            throw new RuntimeException("Login é obrigatório");
+        }
+        if (usuario.getSenhaHash() == null || usuario.getSenhaHash().isEmpty()) {
+            throw new RuntimeException("Senha é obrigatória");
+        }
+        if (usuario.getPerfilUsuario() == null) {
+            throw new RuntimeException("Perfil de usuário é obrigatório");
+        }
     }
 }

@@ -10,6 +10,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 @Entity
 public class HistoricoEventos {
@@ -23,6 +25,10 @@ public class HistoricoEventos {
 
     @Enumerated(EnumType.STRING)
     private Status status;
+
+    @ManyToOne
+    @JoinColumn(name = "veiculo_id")
+    private Veiculo veiculo;
 
     public Long getId() {
         return this.id;
@@ -50,5 +56,13 @@ public class HistoricoEventos {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
     }
 }

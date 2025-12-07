@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Locações - FNS Locações</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+  <header><h1>Locações</h1></header>
+
+  <main>
+    <div class="toolbar">
+      <a href="index.html">Voltar</a>
+      <button class="btn-primary" onclick="novaLocacao()">Nova Locação</button>
+    </div>
+
+    <table id="tabela-locacoes">
+      <thead>
+        <tr>
+          <th>ID</th><th>Cliente</th><th>Veículo</th><th>Usuário</th><th>Início</th><th>Fim Previsto</th><th>Devolução</th><th>Valor Final</th><th>Ações</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div id="modal-locacao" class="modal hidden">
+      <div class="modal-content">
+        <h2 id="titulo-locacao">Nova Locação</h2>
+        <input type="hidden" id="locacao-id">
+
+        <label>Cliente</label>
+        <select id="locacao-cliente"></select>
+
+        <label>Veículo</label>
+        <select id="locacao-veiculo"></select>
+
+        <label>Usuário</label>
+        <select id="locacao-usuario"></select>
+
+        <label>Data Início</label>
+        <input id="locacao-data-inicio" type="datetime-local">
+
+        <label>Data Fim Prevista</label>
+        <input id="locacao-data-fim" type="datetime-local">
+
+        <label>Data Devolução</label>
+        <input id="locacao-data-devolucao" type="datetime-local">
+
+        <label>Valor Diária</label>
+        <input id="locacao-valor-diaria" type="number" step="0.01">
+
+        <label>Valor Final</label>
+        <input id="locacao-valor-final" type="number" step="0.01">
+
+        <button class="btn-primary" onclick="salvarLocacao()">Salvar</button>
+        <button onclick="fecharModalLocacao()">Cancelar</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/locacoes.js"></script>
+</body>
+</html>

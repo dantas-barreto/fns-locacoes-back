@@ -14,10 +14,13 @@ public class ClienteService {
     private ClienteRepository clienteRepository;
 
     public Cliente salvar(Cliente cliente) {
+        validarCliente(cliente);
         return clienteRepository.save(cliente);
     }
 
     public Cliente atualizar(Long id, Cliente clienteAtualizado) {
+        validarCliente(clienteAtualizado);
+        
         Cliente existente = clienteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
 
@@ -40,5 +43,36 @@ public class ClienteService {
 
     public void remover(Long id) {
         clienteRepository.deleteById(id);
+    }
+
+    // Método de validação
+    private void validarCliente(Cliente cliente) {
+        if (cliente.getNome() == null || cliente.getNome().trim().isEmpty()) {
+            throw new RuntimeException("Nome do cliente é obrigatório");
+        }
+        if (cliente.getCpf() == null || cliente.getCpf().trim().isEmpty()) {
+            throw new RuntimeException("CPF do cliente é obrigatório");
+        }
+        if (!validarCPF(cliente.getCpf())) {
+            throw new RuntimeException("CPF inválido");
+        }
+    }
+
+    // Validação básica de CPF
+    private boolean validarCPF(String cpf) {
+        // Remove caracteres especiais
+        cpf = cpf.replaceAll("\\D", "");
+        
+        // Verifica se tem 11 dígitos
+        if (cpf.length() != 11) {
+            return false;
+        }
+        
+        // Verifica se todos os dígitos são iguais
+        if (cpf.matches("(\\d)\\1{10}")) {
+            return false;
+        }
+        
+        return true;
     }
 }

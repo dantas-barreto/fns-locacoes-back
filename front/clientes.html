@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Clientes - FNS Locações</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+  <header><h1>Clientes</h1></header>
+
+  <main>
+    <div class="toolbar">
+      <a href="index.html">Voltar</a>
+      <button class="btn-primary" onclick="novoCliente()">Novo Cliente</button>
+    </div>
+
+    <table id="tabela-clientes">
+      <thead>
+        <tr><th>ID</th><th>Nome</th><th>CPF</th><th>Telefone</th><th>Endereço</th><th>Ações</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div id="modal-cliente" class="modal hidden">
+      <div class="modal-content">
+        <h2 id="titulo-cliente">Novo Cliente</h2>
+        <input type="hidden" id="cliente-id">
+
+        <label>Nome</label>
+        <input id="cliente-nome">
+
+        <label>CPF</label>
+        <input id="cliente-cpf">
+
+        <label>Telefone</label>
+        <input id="cliente-telefone">
+
+        <label>Endereço</label>
+        <input id="cliente-endereco">
+
+        <button onclick="salvarCliente()" class="btn-primary">Salvar</button>
+        <button onclick="fecharModalCliente()">Cancelar</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/clientes.js"></script>
+</body>
+</html>

@@ -4,8 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
+import java.util.List;
 
 @Entity
 public class Veiculo {
@@ -19,9 +20,8 @@ public class Veiculo {
     private String placa;
     private String renavam;
 
-    @ManyToOne
-    @JoinColumn(name = "historicoEventos_id")
-    private HistoricoEventos historicoEventos;
+    @OneToMany(mappedBy = "veiculo", cascade = CascadeType.ALL)
+    private List<HistoricoEventos> historicoEventos;
 
     public Long getId() {
         return id;
@@ -67,11 +67,11 @@ public class Veiculo {
         this.renavam = renavam;
     }
 
-    public HistoricoEventos getHistoricoEventos() {
+    public List<HistoricoEventos> getHistoricoEventos() {
         return historicoEventos;
     }
 
-    public void setHistoricoEventos(HistoricoEventos historicoEventos) {
+    public void setHistoricoEventos(List<HistoricoEventos> historicoEventos) {
         this.historicoEventos = historicoEventos;
     }
 }

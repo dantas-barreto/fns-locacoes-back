@@ -59,4 +59,8 @@ public class Pagamento {
     public Locacao getLocacao() {
         return locacao;
     }
+
+    public void setLocacao(Locacao locacao) {
+        this.locacao = locacao;
+    }
 }
