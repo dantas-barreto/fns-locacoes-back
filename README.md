@@ -49,6 +49,4 @@ fns-locacoes/
 - JavaScript
 
 ### 5. Como Rodar o Projeto Localmente
-**Pré-requisitos**
-- Java 25
-- Docker
+**Instruções:** Veja o arquivo [SCRIPTS_README.md](SCRIPTS_README.md) com os passos de inicialização.
