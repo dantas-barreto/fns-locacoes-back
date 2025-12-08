@@ -25,42 +25,11 @@ Script simples que inicia todos os serviços (Docker + Spring Boot) em sequênci
 - Docker Compose instalado
 - Java 25+ instalado
 
----
-
-### 2. `manage.sh` - Gerenciador Interativo
-
-Script avançado com menu interativo para controlar todos os aspectos da aplicação.
-
-**Uso Interativo:**
-```bash
-./manage.sh
-```
-
-**Uso com Argumentos:**
-```bash
-./manage.sh start      # Inicia todos os serviços
-./manage.sh stop       # Para todos os serviços
-./manage.sh restart    # Reinicia todos os serviços
-./manage.sh status     # Mostra status dos serviços
-```
-
-**Menu Interativo oferece:**
-1. Iniciar todos os serviços
-2. Parar todos os serviços
-3. Reiniciar todos os serviços
-4. Ver status dos serviços
-5. Ver logs do PostgreSQL (em tempo real)
-6. Ver logs da Aplicação (em tempo real)
-7. Sair
-
----
-
 ## Estrutura do Projeto
 
 ```
 fns-locacoes-back/
 ├── start.sh                 # Script simples de inicialização
-├── manage.sh               # Script gerenciador com menu
 ├── docker-compose.yml      # Configuração Docker
 ├── back/                   # Aplicação Spring Boot
 │   ├── mvnw               # Maven Wrapper
@@ -68,8 +37,6 @@ fns-locacoes-back/
 │   └── src/
 └── front/                 # Aplicação Frontend
 ```
-
----
 
 ## Como Usar
 
@@ -88,18 +55,6 @@ Isso vai:
 4. Exibir logs em tempo real
 
 A aplicação estará disponível em: `http://localhost:8080`
-
-### Primeira Execução - Opção 2 (Com Menu)
-
-```bash
-cd /home/manjanga/Work/fns-locacoes-back
-chmod +x manage.sh
-./manage.sh
-```
-
-Menu interativo oferecerá várias opções.
-
----
 
 ## Informações de Acesso
 
@@ -120,8 +75,6 @@ spring.datasource.url=jdbc:postgresql://localhost:5432/locadora
 spring.datasource.username=admin
 spring.datasource.password=admin123
 ```
-
----
 
 ## Troubleshooting
 
@@ -168,8 +121,6 @@ Modifique o `back/src/main/resources/application.properties`:
 server.port=8081
 ```
 
----
-
 ## Parando a Aplicação
 
 ### Com `start.sh`
@@ -187,8 +138,6 @@ docker-compose down
 # Parar e remover volumes
 docker-compose down -v
 ```
-
----
 
 ## Logs e Debug
 
@@ -217,8 +166,6 @@ SELECT * FROM usuario; # Ver usuários
 \q                     # Sair
 ```
 
----
-
 ## Desenvolvimento
 
 ### Modificar código e recompilar
@@ -242,8 +189,6 @@ docker exec -it fns_postgres psql -U admin -d locadora
 # DROP TABLE IF EXISTS locacao CASCADE;
 # etc...
 ```
-
----
 
 ## Comandos Úteis
 
@@ -270,8 +215,6 @@ docker-compose logs -f postgres
 docker-compose down -v && docker-compose up -d
 ```
 
----
-
 ## Support
 
 Para mais informações ou problemas, consulte a documentação do:
@@ -279,7 +222,3 @@ Para mais informações ou problemas, consulte a documentação do:
 - [Docker Compose](https://docs.docker.com/compose/)
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [PostgreSQL](https://www.postgresql.org/docs/)
-
----
-
-**Última atualização:** Dezembro 7, 2025
