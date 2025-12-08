@@ -121,14 +121,10 @@ Modifique o `back/src/main/resources/application.properties`:
 server.port=8081
 ```
 
-## Parando a Aplicação
+### Parando a Aplicação
 
 ### Com `start.sh`
-Pressione `Ctrl+C` no terminal
-
-### Com `manage.sh`
-- Escolha opção "2" para parar serviços
-- Ou pressione `Ctrl+C` se em modo interativo
+Pressione `Ctrl+C` no terminal para interromper a aplicação Spring Boot iniciada pelo script.
 
 ### Comandos Docker Diretos
 ```bash
@@ -139,14 +135,14 @@ docker-compose down
 docker-compose down -v
 ```
 
-## Logs e Debug
+### Logs e Debug
 
 ### Ver logs em tempo real
 ```bash
 # PostgreSQL
 docker-compose logs -f postgres
 
-# Spring Boot (com manage.sh, opção 6)
+# Spring Boot (abrir manualmente os logs)
 cd back
 ./mvnw spring-boot:run
 
@@ -196,23 +192,17 @@ docker exec -it fns_postgres psql -U admin -d locadora
 # Iniciar com script
 ./start.sh
 
-# Menu gerenciador
-./manage.sh
-
 # Status dos serviços
-./manage.sh status
+docker-compose ps
 
 # Parar tudo
-./manage.sh stop
+docker-compose down
 
 # Reiniciar tudo
-./manage.sh restart
+docker-compose down -v && docker-compose up -d
 
 # Ver logs PostgreSQL
 docker-compose logs -f postgres
-
-# Limpar tudo e recomeçar
-docker-compose down -v && docker-compose up -d
 ```
 
 ## Support
